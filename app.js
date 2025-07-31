@@ -7,7 +7,7 @@ function agregarAmigo() {
     let ingresarAmigo = document.getElementById('amigo').value;
 
 // Validación de entrada y método push  
-    if (ingresarAmigo === "") {
+    if (ingresarAmigo.trim() === "") {
         alert("Por favor ingrese un nombre.");
     } else {
         amigos.push(ingresarAmigo);
@@ -38,3 +38,15 @@ function mostrarListaAmigo() {
     }
 }
 
+//Sortear los amigos
+
+function sortearAmigo() {
+    let amigosDisponibles = amigos.length;
+    if (amigosDisponibles === 0) {
+        alert("Por favor, ingrese un nombre de un amigo(a) antes de sortear");
+    } else {
+        let indiceAmigo = Math.floor(Math.random() * amigosDisponibles);
+        let resultadoHTML = document.getElementById("amigoSecreto");
+        resultadoHTML.innerHTML = amigos[indiceAmigo];
+    }
+}
