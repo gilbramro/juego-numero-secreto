@@ -11,7 +11,9 @@ function agregarAmigo() {
         alert("Por favor ingrese un nombre.");
     } else {
         amigos.push(ingresarAmigo);
-        console.log(amigos);
+        document.querySelector('#amigo').value = "";
+        mostrarListaAmigo();
+        //console.log(amigos);
 
         limpiarCampoEntrada();
     }
@@ -21,3 +23,18 @@ function agregarAmigo() {
 function limpiarCampoEntrada() {
     document.querySelector('#amigo').value = '';
 }
+
+function mostrarListaAmigo() {
+    let listaAmigos = document.querySelector('#listaAmigos');
+    listaAmigos.innerHTML = "";
+    //console.log(listaAmigos.innerHTML);
+
+    for (let i = 0; i <amigos.length; i++) {
+        const li = amigos[i];
+
+        let listaHTML = document.createElement("li");
+        listaHTML.textContent = li;
+        listaAmigos.appendChild(listaHTML);
+    }
+}
+
